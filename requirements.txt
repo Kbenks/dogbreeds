@@ -2,7 +2,7 @@ streamlit
 tensorflow
 matplotlib
 opencv-python
-PIL
+pillow
 numpy
 sklearn
 tqdm
