@@ -1,7 +1,6 @@
 streamlit
 tensorflow
 matplotlib
-opencv-python
 pillow
 numpy
 sklearn
