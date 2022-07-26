@@ -1,0 +1,9 @@
+streamlit
+tensorflow
+matplotlib
+glob
+cv2
+PIL
+numpy
+sklearn
+tqdm
