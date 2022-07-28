@@ -282,7 +282,8 @@ st.title("WHAT IS THE BREED OF THIS DOG ?")
 image_file = st.file_uploader("Upload Images", type=["png","jpg","jpeg"])
 
 if image_file is not None:
-	bytesdata=image_file.read()
-	breed_identifier(bytesdata)
+	from PIL import Image
+	image = Image.open(image_file)
+	breed_identifier(image)
 	st.image(load_image(image_file),width=250)
     
