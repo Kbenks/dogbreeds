@@ -282,10 +282,7 @@ st.title("WHAT IS THE BREED OF THIS DOG ?")
 image_file = st.file_uploader("Upload Images", type=["png","jpg","jpeg"])
 
 if image_file is not None:
-
-			 
-
-              # To View Uploaded Image
-    breed_identifier(image_file)
-    st.image(load_image(image_file),width=250)
+	bytesdata=image_file.read()
+	breed_identifier(bytesdata)
+    	st.image(load_image(image_file),width=250)
     
