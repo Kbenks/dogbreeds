@@ -264,7 +264,7 @@ def breed_identifier(img_path):
     prediction = Xception_predict_breed(img_path)
     #pred=re.sub(r'\d+','',prediction)
     #if dog_detector(img_path) == True:
-     return st.write(f"This dog is a {prediction}\n")
+    return st.write(f"This dog is a {prediction}\n")
     
     if face_detector(img_path) == True:
         st.write('This is a human, "BACHARE" as we Moroccan say')
