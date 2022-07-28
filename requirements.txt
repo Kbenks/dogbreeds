@@ -7,8 +7,6 @@ keras
 h5py
 tensorflow==2.9.1
 opencv-python==4.6.0.66
-scipy==0.18.1
-pillow==4.0.0
-ipykernel==4.6.1
+
 
 
