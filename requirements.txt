@@ -4,7 +4,6 @@ pillow
 numpy
 tqdm
 keras
-keras.utils
 tensorflow
 opencv-python-headless
 tensorflow-gpu==2.7.1
