@@ -2,7 +2,7 @@ import streamlit as st
 from tensorflow import keras
 from tensorflow.keras.applications.resnet50 import ResNet50
 Xception_model_aug = keras.models.load_model('./mod')
-ResNet50_model=keras.models.load_model('./dogdetect')
+#ResNet50_model=keras.models.load_model('./dogdetect')
 from sklearn.datasets import load_files       
 from keras.utils import np_utils
 import numpy as np
@@ -222,15 +222,15 @@ def face_detector(img_path):
     faces = face_cascade.detectMultiScale(gray)
     return len(faces) > 0
 
-def ResNet50_predict_labels(img_path):
+#def ResNet50_predict_labels(img_path):
     # returns prediction vector for image located at img_path
-    img = preprocess_input(path_to_tensor(img_path))
-    return np.argmax(ResNet50_model.predict(img))
+   # img = preprocess_input(path_to_tensor(img_path))
+   # return np.argmax(ResNet50_model.predict(img))
 
 ### returns "True" if a dog is detected in the image stored at img_path
 def dog_detector(img_path):
-    prediction = ResNet50_predict_labels(img_path)
-    return ((prediction <= 268) & (prediction >= 151))
+   # prediction = ResNet50_predict_labels(img_path)
+   # return ((prediction <= 268) & (prediction >= 151))
 
 from PIL import Image
 def path_to_tensor(image_file):
@@ -257,9 +257,9 @@ def Xception_predict_breed (image_file):
     
 def breed_identifier(img_path):
     prediction = Xception_predict_breed(img_path)
-    if dog_detector(img_path) == True:
-        st.write('picture is a dog')
-        return st.write(f"This dog is a {prediction}\n")
+    #if dog_detector(img_path) == True:
+        #st.write('picture is a dog')
+       # return st.write(f"This dog is a {prediction}\n")
     
     if face_detector(img_path) == True:
         st.write('This is a human, "BACHARE" as we Moroccan say')
@@ -267,7 +267,7 @@ def breed_identifier(img_path):
         
     
     else:
-        return st.write(f'Not sure if it is a dog, if so it is a {prediction}\n')
+        return st.write(f'This dog is a {prediction}\n')
 
 st.set_page_config( page_title="DOG BREED")
 st.title("WHAT IS THE BREED OF THIS DOG ?")
