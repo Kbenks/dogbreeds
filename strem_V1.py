@@ -22,6 +22,7 @@ import random
 from tensorflow.keras.applications.resnet50 import preprocess_input, decode_predictions
 from keras.utils import img_to_array
 from keras.utils import load_img
+import re
 
 # load list of dog names
 dog_names = ['1.Affenpinscher',
@@ -261,17 +262,18 @@ def Xception_predict_breed (image_file):
     
 def breed_identifier(img_path):
     prediction = Xception_predict_breed(img_path)
+    pred=re.sub(r'\d+','',prediction)
     if dog_detector(img_path) == True:
         st.write('picture is a dog')
-        return st.write(f"This dog is a {prediction}\n")
+        return st.write(f"This dog is a {pred}\n")
     
     if face_detector(img_path) == True:
         st.write('This is a human, "BACHARE" as we Moroccan say')
-        return st.write(f"This person looks like a {prediction}\n")
+        return st.write(f"This person looks like a {pred}\n")
         
     
     else:
-        return st.write(f'Not sure if it is a dog, if so it is a {prediction}\n')
+        return st.write(f'Not sure if it is a dog, if so it is a {pred}\n')
 
 st.set_page_config( page_title="DOG BREED")
 st.title("WHAT IS THE BREED OF THIS DOG ?")
