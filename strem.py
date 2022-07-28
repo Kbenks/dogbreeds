@@ -189,15 +189,15 @@ random.shuffle(human_files)
 face_cascade = cv2.CascadeClassifier('./haarcascade_frontalface_alt.xml')
 
 # load color (BGR) image
-img = cv2.imread(human_files[3])
+image = cv2.imread(human_files[3])
 # convert BGR image to grayscale
-gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
 # find faces in image
 faces = face_cascade.detectMultiScale(gray)
 
 # convert BGR image to RGB for plotting
-cv_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+cv_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
 def extract_Xception(tensor):
 	from keras.applications.xception import Xception, preprocess_input
@@ -205,9 +205,9 @@ def extract_Xception(tensor):
 
 ### a function that takes a path to an image as input
 ### and returns the dog breed that is predicted by the model.
-def Xception_predict_breed (image_file):
+def Xception_predict_breed (img_path):
     # extract the bottle neck features
-    bottleneck_feature = extract_Xception(path_to_tensor(image_file)) 
+    bottleneck_feature = extract_Xception(path_to_tensor(img_path)) 
     ## get a vector of predicted values
     predicted_vector = Xception_model_aug.predict(bottleneck_feature) 
     
@@ -215,8 +215,8 @@ def Xception_predict_breed (image_file):
     return dog_names[np.argmax(predicted_vector)]
 
 # returns "True" if face is detected in image stored at img_path
-def face_detector(image_file):
-    img = cv2.imread(image_file)
+def face_detector(img_path):
+    img = cv2.imread(img_path)
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     faces = face_cascade.detectMultiScale(gray)
     return len(faces) > 0
@@ -230,7 +230,7 @@ def face_detector(image_file):
 #def dog_detector(img_path):
    # prediction = ResNet50_predict_labels(img_path)
    # return ((prediction <= 268) & (prediction >= 151))
-def path_to_tensor(image_file):
+def path_to_tensor(img_path):
     # loads RGB image as PIL.Image.Image type
     img = load_img(image_file, target_size=(224, 224))
     # convert PIL.Image.Image type to 3D tensor with shape (224, 224, 3)
@@ -239,12 +239,12 @@ def path_to_tensor(image_file):
     return np.expand_dims(x, axis=0)
 
 def paths_to_tensor(image_paths):
-    list_of_tensors = [path_to_tensor(image_file) for image_file in tqdm(image_paths)]
+    list_of_tensors = [path_to_tensor(img_path) for img_path in tqdm(image_paths)]
     return np.vstack(list_of_tensors)
 
-def Xception_predict_breed (image_file):
+def Xception_predict_breed (img_path):
     # extract the bottle neck features
-    bottleneck_feature = extract_Xception(path_to_tensor(image_file)) 
+    bottleneck_feature = extract_Xception(path_to_tensor(img_path)) 
     ## get a vector of predicted values
     predicted_vector = Xception_model_aug.predict(bottleneck_feature) 
     
@@ -277,7 +277,7 @@ st.title("WHAT IS THE BREED OF THIS DOG ?")
 file = st.file_uploader("Upload Images", type=["png","jpg","jpeg"])
 
 if file is not None:
-	breed_identifier(file)
+	breed_identifier(img)
 	st.image(load_image(file),width=250)
 	
 
