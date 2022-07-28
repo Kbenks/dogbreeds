@@ -274,11 +274,11 @@ st.title("WHAT IS THE BREED OF THIS DOG ?")
 
 
 
-image_file = st.file_uploader("Upload Images", type=["png","jpg","jpeg"])
+file = st.file_uploader("Upload Images", type=["png","jpg","jpeg"])
 
 if image_file is not None:
-	breed_identifier(image_file)
-	st.image(load_image(image_file),width=250)
+	breed_identifier(file)
+	st.image(load_image(file),width=250)
 	
 
 			 
