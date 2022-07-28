@@ -16,8 +16,8 @@ from tqdm import tqdm
 import cv2                
 import random
 from tensorflow.keras.applications.resnet50 import preprocess_input, decode_predictions
-from keras.utils import img_to_array
-from keras.utils import load_img
+from tensorflow.keras.preprocessing.image import img_to_array
+from tensorflow.keras.preprocessing.image import load_img
 
 # load list of dog names
 dog_names = ['1.Affenpinscher',
