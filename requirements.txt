@@ -4,9 +4,9 @@ pillow
 numpy
 tqdm
 keras
+h5py
 tensorflow==2.9.1
 opencv-python==4.6.0.66
-h5py==2.6.0
 scipy==0.18.1
 scikit-learn==0.18.1
 pillow==4.0.0
