@@ -2,7 +2,7 @@ import streamlit as st
 from tensorflow import keras
 VGG19_model_aug = keras.models.load_model('./mod')
 from sklearn.datasets import load_files       
-from tensorflow.keras.utils import np_utils
+from keras.utils import np_utils
 import numpy as np
 from glob import glob
 #from matplotlib.pyplot import figure, imshow, axis
