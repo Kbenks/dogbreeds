@@ -2,7 +2,7 @@ import streamlit as st
 from tensorflow import keras
 from tensorflow.keras.applications.resnet50 import ResNet50
 Xception_model_aug = keras.models.load_model('./mod')
-ResNet50_model=keras.models.load_model('./dogdetect')
+#ResNet50_model=keras.models.load_model('./dogdetect')
 from sklearn.datasets import load_files       
 from keras.utils import np_utils
 import numpy as np
@@ -19,10 +19,10 @@ from tqdm import tqdm
 import cv2                
 import matplotlib.pyplot as plt
 import random
-from tensorflow.keras.applications.resnet50 import preprocess_input, decode_predictions
+#from tensorflow.keras.applications.resnet50 import preprocess_input, decode_predictions
 from keras.utils import img_to_array
 from keras.utils import load_img
-import re
+#import re
 
 # load list of dog names
 dog_names = ['1.Affenpinscher',
