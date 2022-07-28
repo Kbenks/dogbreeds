@@ -5,7 +5,7 @@ numpy
 tqdm
 keras
 tensorflow
-opencv-python==4.5.5.62
+opencv-python-headless
 tensorflow-gpu==2.7.1
 
 
