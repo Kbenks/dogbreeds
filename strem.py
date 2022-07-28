@@ -205,9 +205,9 @@ def extract_Xception(tensor):
 
 ### a function that takes a path to an image as input
 ### and returns the dog breed that is predicted by the model.
-def Xception_predict_breed (img_path):
+def Xception_predict_breed (image_file):
     # extract the bottle neck features
-    bottleneck_feature = extract_Xception(path_to_tensor(img_path)) 
+    bottleneck_feature = extract_Xception(path_to_tensor(image_file)) 
     ## get a vector of predicted values
     predicted_vector = Xception_model_aug.predict(bottleneck_feature) 
     
@@ -215,8 +215,8 @@ def Xception_predict_breed (img_path):
     return dog_names[np.argmax(predicted_vector)]
 
 # returns "True" if face is detected in image stored at img_path
-def face_detector(img_path):
-    img = cv2.imread(img_path)
+def face_detector(image_file):
+    img = cv2.imread(image_file)
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     faces = face_cascade.detectMultiScale(gray)
     return len(faces) > 0
