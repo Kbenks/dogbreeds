@@ -16,7 +16,7 @@ import random
 from tensorflow.keras.applications.resnet50 import preprocess_input, decode_predictions
 from tensorflow.keras.preprocessing.image import img_to_array
 from tensorflow.keras.preprocessing.image import load_img
-import glob
+from glob import glob
 
 # load list of dog names
 dog_names = ['1.Affenpinscher',
