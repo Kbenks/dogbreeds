@@ -17,7 +17,7 @@ from tensorflow.keras.applications.resnet50 import preprocess_input, decode_pred
 from tensorflow.keras.preprocessing.image import img_to_array
 from tensorflow.keras.preprocessing.image import load_img
 from glob import glob
-
+from PIL import Image
 # load list of dog names
 dog_names = ['1.Affenpinscher',
  '2.Afghan_hound',
@@ -230,8 +230,6 @@ def face_detector(image_file):
 #def dog_detector(img_path):
    # prediction = ResNet50_predict_labels(img_path)
    # return ((prediction <= 268) & (prediction >= 151))
-from PIL import Image
-
 def path_to_tensor(image_file):
     # loads RGB image as PIL.Image.Image type
     img = load_img(image_file, target_size=(224, 224))
@@ -254,19 +252,20 @@ def Xception_predict_breed (image_file):
     return dog_names[np.argmax(predicted_vector)]
 
     
-def breed_identifier(image_file):
-    prediction = Xception_predict_breed(image_file)
+def breed_identifier(img_path):
+    prediction = Xception_predict_breed(img_path)
+    #pred=re.sub(r'\d+','',prediction)
     #if dog_detector(img_path) == True:
-        #st.write('picture is a dog')
-       # return st.write(f"This dog is a {prediction}\n")
+       #st.write('picture is a dog')
+     return st.write(f"This dog is a {prediction}\n")
     
-    if face_detector(image_file) == True:
+    if face_detector(img_path) == True:
         st.write('This is a human, "BACHARE" as we Moroccan say')
-        return st.write(f"This person looks like a {prediction}\n")
+        return st.write(f"This person looks like a {pred}\n")
         
     
     else:
-        return st.write(f'This dog is a {prediction}\n')
+        return st.write(f'Not sure if it is a dog, if so it is a {pred}\n')
 
 st.set_page_config( page_title="DOG BREED")
 st.title("WHAT IS THE BREED OF THIS DOG ?")
@@ -284,4 +283,5 @@ if image_file is not None:
               # To View Uploaded Image
     breed_identifier(image_file)
     st.image(load_image(image_file),width=250)
+    
     
