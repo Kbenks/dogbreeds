@@ -1,6 +1,6 @@
 import streamlit as st
 from tensorflow import keras
-VGG19_model_aug = keras.models.load_model('./saved_models')
+VGG19_model_aug = keras.models.load_model('./mod')
 from sklearn.datasets import load_files       
 from keras.utils import np_utils
 import numpy as np
