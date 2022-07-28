@@ -232,7 +232,7 @@ def face_detector(img_path):
    # return ((prediction <= 268) & (prediction >= 151))
 def path_to_tensor(img_path):
     # loads RGB image as PIL.Image.Image type
-    img = load_img(image_file, target_size=(224, 224))
+    img = load_img(img_path, target_size=(224, 224))
     # convert PIL.Image.Image type to 3D tensor with shape (224, 224, 3)
     x = img_to_array(img)
     # convert 3D tensor to 4D tensor with shape (1, 224, 224, 3) and return 4D tensor
