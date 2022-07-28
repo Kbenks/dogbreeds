@@ -6,9 +6,6 @@ ResNet50_model=keras.models.load_model('./dogdetect')
 from sklearn.datasets import load_files       
 from keras.utils import np_utils
 import numpy as np
-from glob import glob
-from matplotlib.pyplot import figure, imshow, axis
-from matplotlib.image import imread
 from keras.layers import Conv2D, MaxPooling2D, GlobalAveragePooling2D
 from keras.layers import Dropout, Flatten, Dense
 from keras.models import Sequential
@@ -17,7 +14,6 @@ from keras.utils import load_img
 from keras.callbacks import ModelCheckpoint             
 from tqdm import tqdm
 import cv2                
-import matplotlib.pyplot as plt
 import random
 from tensorflow.keras.applications.resnet50 import preprocess_input, decode_predictions
 from keras.utils import img_to_array
