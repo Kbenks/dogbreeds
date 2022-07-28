@@ -1,9 +1,9 @@
 streamlit
-tensorflow
 matplotlib
 pillow
 numpy
 tqdm
+tensorflow==2.9.1
 opencv-python==4.6.0.66
 h5py==2.6.0
 scipy==0.18.1
