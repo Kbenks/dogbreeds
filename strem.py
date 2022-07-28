@@ -242,11 +242,11 @@ def paths_to_tensor(image_paths):
     list_of_tensors = [path_to_tensor(img_path) for img_path in tqdm(image_paths)]
     return np.vstack(list_of_tensors)
 
-def Xception_predict_breed (img_path):
+#def Xception_predict_breed (img_path):
     # extract the bottle neck features
-    bottleneck_feature = extract_Xception(path_to_tensor(img_path)) 
+   # bottleneck_feature = extract_Xception(path_to_tensor(img_path)) 
     ## get a vector of predicted values
-    predicted_vector = Xception_model_aug.predict(bottleneck_feature) 
+    #predicted_vector = Xception_model_aug.predict(bottleneck_feature) 
     
     ## return the breed
     return dog_names[np.argmax(predicted_vector)]
