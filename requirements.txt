@@ -4,7 +4,7 @@ matplotlib
 pillow
 numpy
 tqdm
-opencv-python==3.2.0.6
+opencv-python==4.6.0.66
 h5py==2.6.0
 scipy==0.18.1
 keras==2.0.2
