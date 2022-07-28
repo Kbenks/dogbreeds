@@ -4,7 +4,6 @@ pillow
 numpy
 tqdm
 keras
-h5py
 tensorflow
 opencv-python==4.5.5.62
 tensorflow-gpu==2.7.1
