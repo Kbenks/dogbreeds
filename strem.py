@@ -280,8 +280,8 @@ if image_file is not None:
 
 			 
 
-              # To View Uploaded Image
-    breed_identifier(image_file)
-    st.image(load_image(image_file),width=250)
+              # To View Uploaded Imag
+	breed_identifier(image_file)
+    	st.image(load_image(image_file),width=250)
     
     
