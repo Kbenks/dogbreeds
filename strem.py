@@ -254,13 +254,13 @@ def Xception_predict_breed (image_file):
     return dog_names[np.argmax(predicted_vector)]
 
     
-def breed_identifier(img_path):
-    prediction = Xception_predict_breed(img_path)
+def breed_identifier(image_file):
+    prediction = Xception_predict_breed(image_file)
     #if dog_detector(img_path) == True:
         #st.write('picture is a dog')
        # return st.write(f"This dog is a {prediction}\n")
     
-    if face_detector(img_path) == True:
+    if face_detector(image_file) == True:
         st.write('This is a human, "BACHARE" as we Moroccan say')
         return st.write(f"This person looks like a {prediction}\n")
         
