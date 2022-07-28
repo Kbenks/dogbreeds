@@ -203,6 +203,19 @@ faces = face_cascade.detectMultiScale(gray)
 # convert BGR image to RGB for plotting
 cv_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
+from PIL import Image
+def path_to_tensor(image_file):
+    # loads RGB image as PIL.Image.Image type
+    img = load_img(image_file, target_size=(224, 224))
+    # convert PIL.Image.Image type to 3D tensor with shape (224, 224, 3)
+    x = img_to_array(img)
+    # convert 3D tensor to 4D tensor with shape (1, 224, 224, 3) and return 4D tensor
+    return np.expand_dims(x, axis=0)
+
+def paths_to_tensor(image_paths):
+    list_of_tensors = [path_to_tensor(image_file) for image_file in tqdm(image_paths)]
+    return np.vstack(list_of_tensors)
+
 def extract_Xception(tensor):
 	from keras.applications.xception import Xception, preprocess_input
 	return Xception(weights='imagenet', include_top=False).predict(preprocess_input(tensor))
@@ -235,18 +248,7 @@ def face_detector(img_path):
  #   prediction = ResNet50_predict_labels(img_path)
   #  return ((prediction <= 268) & (prediction >= 151))
 
-from PIL import Image
-def path_to_tensor(image_file):
-    # loads RGB image as PIL.Image.Image type
-    img = load_img(image_file, target_size=(224, 224))
-    # convert PIL.Image.Image type to 3D tensor with shape (224, 224, 3)
-    x = img_to_array(img)
-    # convert 3D tensor to 4D tensor with shape (1, 224, 224, 3) and return 4D tensor
-    return np.expand_dims(x, axis=0)
 
-def paths_to_tensor(image_paths):
-    list_of_tensors = [path_to_tensor(image_file) for image_file in tqdm(image_paths)]
-    return np.vstack(list_of_tensors)
 
 def Xception_predict_breed (image_file):
     # extract the bottle neck features
