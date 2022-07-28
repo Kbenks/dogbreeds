@@ -7,8 +7,8 @@ from sklearn.datasets import load_files
 from keras.utils import np_utils
 import numpy as np
 from glob import glob
-from matplotlib.pyplot import figure, imshow, axis
-from matplotlib.image import imread
+#from matplotlib.pyplot import figure, imshow, axis
+#from matplotlib.image import imread
 from keras.layers import Conv2D, MaxPooling2D, GlobalAveragePooling2D
 from keras.layers import Dropout, Flatten, Dense
 from keras.models import Sequential
