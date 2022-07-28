@@ -12,8 +12,6 @@ from glob import glob
 from keras.layers import Conv2D, MaxPooling2D, GlobalAveragePooling2D
 from keras.layers import Dropout, Flatten, Dense
 from keras.models import Sequential
-from keras.utils import img_to_array
-from keras.utils import load_img
 from keras.callbacks import ModelCheckpoint             
 from tqdm import tqdm
 import cv2                
