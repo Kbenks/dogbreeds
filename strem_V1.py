@@ -15,7 +15,7 @@ from keras.models import Sequential
 from keras.callbacks import ModelCheckpoint             
 from tqdm import tqdm
 import cv2                
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import random
 #from tensorflow.keras.applications.resnet50 import preprocess_input, decode_predictions
 from tensorflow.keras.utils import img_to_array
