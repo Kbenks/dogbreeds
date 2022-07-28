@@ -2,19 +2,19 @@ import streamlit as st
 from tensorflow import keras
 VGG19_model_aug = keras.models.load_model('./mod')
 from sklearn.datasets import load_files       
-from keras.utils import np_utils
+from tensorflow.keras.utils import np_utils
 import numpy as np
 from glob import glob
-from matplotlib.pyplot import figure, imshow, axis
-from matplotlib.image import imread
+#from matplotlib.pyplot import figure, imshow, axis
+#from matplotlib.image import imread
 from keras.layers import Conv2D, MaxPooling2D, GlobalAveragePooling2D
 from keras.layers import Dropout, Flatten, Dense
 from keras.models import Sequential
-from keras.utils import img_to_array
-from keras.utils import load_img
+from tensorflow.keras.utils import img_to_array
+from tensorflow.keras.utils import load_img
 from keras.callbacks import ModelCheckpoint             
 from tqdm import tqdm              
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 
 # load list of dog names
 dog_names = ['1.Affenpinscher',
