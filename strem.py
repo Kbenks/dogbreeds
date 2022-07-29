@@ -176,29 +176,31 @@ dog_names = ['1.Affenpinscher',
 
 def save_uploaded_file_right(uploaded_file):
 
-    #try:
+    try:
 
-     with open(os.path.join('images_right',uploaded_file.name),'wb') as f:
-		f.write(uploaded_file)
+        with open(os.path.join('images_right',uploaded_file.name),'wb') as f:
 
-        #return 1    
+            f.write(uploaded_file.getbuffer())
 
-   # except:
+        return st.write("Saved image in true folder")    
 
-        #return 0
+    except:
 
+        return st.write("0")
 def save_uploaded_file_wrong(uploaded_file):
 
-    #try:
+    try:
 
-     with open(os.path.join('images_wrong',uploaded_file.name),'wb') as f:
-		f.write(uploaded_file)
+        with open(os.path.join('images_wrong',uploaded_file.name),'wb') as f:
 
-        #return 1    
+            f.write(uploaded_file.getbuffer())
 
-   # except:
+        return st.write("Saved image in false folder")    
 
-        #return 0
+    except:
+
+        return st.write("0") 
+
 
 def load_image(image_file):
 	img = Image.open(image_file)
