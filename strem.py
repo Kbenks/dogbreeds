@@ -1,6 +1,6 @@
 import streamlit as st
 from tensorflow import keras
-#from tensorflow.keras.applications.resnet50 import ResNet50
+from tensorflow.keras.applications.resnet50 import ResNet50
 Xception_model_aug = keras.models.load_model('./mod')
 #ResNet50_model=keras.models.load_model('./dogdetect')
 from sklearn.datasets import load_files       
@@ -11,9 +11,9 @@ from keras.layers import Dropout, Flatten, Dense
 from keras.models import Sequential
 from keras.callbacks import ModelCheckpoint             
 from tqdm import tqdm
-#import cv2                
+import cv2                
 import random
-#from tensorflow.keras.applications.resnet50 import preprocess_input, decode_predictions
+from tensorflow.keras.applications.resnet50 import preprocess_input, decode_predictions
 from tensorflow.keras.preprocessing.image import img_to_array
 from tensorflow.keras.preprocessing.image import load_img
 from glob import glob
@@ -180,24 +180,24 @@ def load_image(image_file):
 #	return VGG19(weights='imagenet', include_top=False).predict(preprocess_input(tensor))
 random.seed(8675309)
 
-# load filenames in shuffled human dataset
-#human_files = np.array(glob("./lfw/*/*"))
-#random.shuffle(human_files)
+#load filenames in shuffled human dataset
+human_files = np.array(glob("./lfw/*/*"))
+random.shuffle(human_files)
                               
 
 # extract pre-trained face detector
-#face_cascade = cv2.CascadeClassifier('./haarcascade_frontalface_alt.xml')
+face_cascade = cv2.CascadeClassifier('./haarcascade_frontalface_alt.xml')
 
 # load color (BGR) image
-#image = cv2.imread(human_files[3])
+image = cv2.imread(human_files[3])
 # convert BGR image to grayscale
-#gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
 # find faces in image
-#faces = face_cascade.detectMultiScale(gray)
+faces = face_cascade.detectMultiScale(gray)
 
 # convert BGR image to RGB for plotting
-#cv_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+cv_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
 def extract_Xception(tensor):
 	from keras.applications.xception import Xception, preprocess_input
@@ -215,11 +215,11 @@ def Xception_predict_breed (img_path):
     return dog_names[np.argmax(predicted_vector)]
 
 # returns "True" if face is detected in image stored at img_path
-#def face_detector(img_path):
- #   img = cv2.imread(img_path)
-  #  gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-   # faces = face_cascade.detectMultiScale(gray)
-    #return len(faces) > 0
+def face_detector(img_path):
+    img = cv2.imread(img_path)
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    faces = face_cascade.detectMultiScale(gray)
+    return len(faces) > 0
 
 #def ResNet50_predict_labels(img_path):
     # returns prediction vector for image located at img_path
@@ -259,9 +259,9 @@ def breed_identifier(img_path):
        #st.write('picture is a dog')
     return st.write(f"This dog is a {prediction}\n")
     
-    #if face_detector(img_path) == True:
-     #   st.write('This is a human, "BACHARE" as we Moroccan say')
-      #  return st.write(f"This person looks like a {pred}\n")
+    if face_detector(img_path) == True:
+        st.write('This is a human, "BACHARE" as we Moroccan say')
+        return st.write(f"This person looks like a {prediction}\n")
         
     
     #else:
