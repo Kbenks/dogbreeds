@@ -180,7 +180,7 @@ def save_uploaded_file_right(uploaded_file):
 
         with open(uploaded_file.name,'wb') as f:
 
-            f.write(uploaded_file.getbuffer())
+            f.write((uploaded_file).getbuffer())
 
         return st.write("Saved image in true folder")    
 
