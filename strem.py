@@ -306,11 +306,13 @@ st.title("WHAT IS THE BREED OF THIS DOG ?")
 
 file = st.file_uploader("Upload Images", type=["png","jpg","jpeg"])
 menu = [" ","True","False"]
-choice = st.selectbox("True or False ?",menu)
+
 
 if file is not None:
 	breed_identifier(file)
 	st.image(load_image(file),width=250)
+choice = st.selectbox("True or False ?",menu)
+if file is not None:
 	if choice == "True":
 		save_uploaded_file_right(file)
 	elif choice == "False":
