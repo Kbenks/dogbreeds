@@ -1,4 +1,6 @@
 import streamlit as st
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 from tensorflow import keras
 from tensorflow.keras.applications.resnet50 import ResNet50
 Xception_model_aug = keras.models.load_model('./mod')
