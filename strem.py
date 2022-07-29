@@ -176,7 +176,7 @@ dog_names = ['1.Affenpinscher',
 
 def save_uploaded_file_right(uploaded_file):
 
-    "try:
+    #try:
 
      with open(os.path.join('images_right',uploaded_file.name),'wb') as f:
 
@@ -190,7 +190,7 @@ def save_uploaded_file_right(uploaded_file):
 
 def save_uploaded_file_wrong(uploaded_file):
 
-    "try:
+    #try:
 
      with open(os.path.join('images_wrong',uploaded_file.name),'wb') as f:
 
