@@ -174,33 +174,33 @@ dog_names = ['1.Affenpinscher',
  '1.American_bully',
  '2.Continental_bulldog']
 
-def save_uploaded_file_wrong(uploaded_file):
-
-    try:
-
-        with open(os.path.join('images_wrong',uploaded_file.name),'wb') as f:
-
-            f.write(uploaded_file)
-
-        return 1    
-
-    except:
-
-        return 0
-
 def save_uploaded_file_right(uploaded_file):
 
-    try:
+    "try:
 
-        with open(os.path.join('images_right',uploaded_file.name),'wb') as f:
+     with open(os.path.join('images_right',uploaded_file.name),'wb') as f:
 
-            f.write(uploaded_file)
+ 	f.write(uploaded_file)
 
-        return 1    
+        #return 1    
 
-    except:
+   # except:
 
-        return 0
+        #return 0
+
+def save_uploaded_file_wrong(uploaded_file):
+
+    "try:
+
+     with open(os.path.join('images_wrong',uploaded_file.name),'wb') as f:
+
+ 	f.write(uploaded_file)
+
+        #return 1    
+
+   # except:
+
+        #return 0
 
 def load_image(image_file):
 	img = Image.open(image_file)
