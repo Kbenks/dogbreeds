@@ -174,6 +174,34 @@ dog_names = ['1.Affenpinscher',
  '1.American_bully',
  '2.Continental_bulldog']
 
+def save_uploaded_file_wrong(uploaded_file):
+
+    try:
+
+        with open(os.path.join('./images_wrong',uploaded_file.name),'wb') as f:
+
+            f.write(uploaded_file.getbuffer())
+
+        return 1    
+
+    except:
+
+        return 0
+
+def save_uploaded_file_right(uploaded_file):
+
+    try:
+
+        with open(os.path.join('./images_right',uploaded_file.name),'wb') as f:
+
+            f.write(uploaded_file.getbuffer())
+
+        return 1    
+
+    except:
+
+        return 0
+
 def load_image(image_file):
 	img = Image.open(image_file)
 	return img
@@ -277,10 +305,17 @@ st.title("WHAT IS THE BREED OF THIS DOG ?")
 
 
 file = st.file_uploader("Upload Images", type=["png","jpg","jpeg"])
+menu = ["True","False"]
+choice = st.selectbox("True or False ?",menu)
 
 if file is not None:
 	breed_identifier(file)
 	st.image(load_image(file),width=250)
+	if choice == "True":
+		save_uploaded_file_right(file)
+	else:
+		save_uploaded_file_wrong(file)
+		
 	
 
 			 
