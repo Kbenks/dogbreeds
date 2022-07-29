@@ -180,7 +180,7 @@ def save_uploaded_file_wrong(uploaded_file):
 
         with open(os.path.join('./images_wrong',uploaded_file.name),'wb') as f:
 
-            f.write(uploaded_file.getbuffer())
+            f.write(uploaded_file)
 
         return 1    
 
@@ -194,7 +194,7 @@ def save_uploaded_file_right(uploaded_file):
 
         with open(os.path.join('./images_right',uploaded_file.name),'wb') as f:
 
-            f.write(uploaded_file.getbuffer())
+            f.write(uploaded_file)
 
         return 1    
 
