@@ -178,7 +178,7 @@ def save_uploaded_file_right(uploaded_file):
 
     try:
 
-        with open(os.path.join('images_right',uploaded_file.name),'wb') as f:
+        with open(uploaded_file.name,'wb') as f:
 
             f.write(uploaded_file.getbuffer())
 
