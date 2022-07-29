@@ -311,8 +311,7 @@ menu = [" ","True","False"]
 if file is not None:
 	breed_identifier(file)
 	st.image(load_image(file),width=250)
-choice = st.selectbox("True or False ?",menu)
-if file is not None:
+	choice = st.selectbox("True or False ?",menu)
 	if choice == "True":
 		save_uploaded_file_right(file)
 	elif choice == "False":
