@@ -323,12 +323,14 @@ if file is not None:
 	choice = st.selectbox("True or False ?",menu)
 	if choice == "True":
 		#save_uploaded_file_right(file)
-		git_prefix = 'folder1/'
+		git_prefix = 'images_right/'
 		git_file = git_prefix + uploadefile
 		repo.create_file(git_file, "committing files", content, branch="master")
-    print(git_file + ' CREATED')
 	elif choice == "False":
-		save_uploaded_file_wrong(file)
+		git_prefix = 'images_wrong/'
+		git_file = git_prefix + uploadefile
+		repo.create_file(git_file, "committing files", content, branch="master")
+		#save_uploaded_file_wrong(file)
 		
 	
 
