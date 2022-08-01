@@ -22,7 +22,7 @@ from glob import glob
 from PIL import Image
 from github import Github
 g = Github("Kbenks", "Krimotionniste89")
-repo = g.get_user().get_repo(GITHUB_REPO)
+repo = g.get_user().get_repo('dogbreeds')
 all_files = []
 contents = repo.get_contents("")
 # load list of dog names
