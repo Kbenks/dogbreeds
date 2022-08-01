@@ -184,9 +184,9 @@ def save_uploaded_file_right(uploaded_file):
     try:
 
         with open(uploaded_file.name,'wb') as f:
-	    git_prefix = 'images_right/'
-            git_file = git_prefix + uploadedfile
-	    repo.create_file(git_file, "committing files", content, branch="master")
+		git_prefix = 'images_right/'
+		git_file = git_prefix + uploadedfile
+		repo.create_file(git_file, "committing files", content, branch="master")
 		
             #f.write((uploaded_file).getbuffer())
 	
