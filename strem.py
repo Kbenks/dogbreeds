@@ -217,11 +217,11 @@ def load_image(image_file):
 # def extract_VGG19(tensor):
 #	from keras.applications.vgg19 import VGG19, preprocess_input
 #	return VGG19(weights='imagenet', include_top=False).predict(preprocess_input(tensor))
-random.seed(8675309)
+#random.seed(8675309)
 
 #load filenames in shuffled human dataset
-human_files = np.array(glob("./lfw/*/*"))
-random.shuffle(human_files)
+#human_files = np.array(glob("./lfw/*/*"))
+#random.shuffle(human_files)
                               
 
 # extract pre-trained face detector
@@ -233,7 +233,7 @@ face_cascade = cv2.CascadeClassifier('./haarcascade_frontalface_alt.xml')
 #gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
 # find faces in image
-faces = face_cascade.detectMultiScale(gray)
+#faces = face_cascade.detectMultiScale(gray)
 
 # convert BGR image to RGB for plotting
 #cv_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
