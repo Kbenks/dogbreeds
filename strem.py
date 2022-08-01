@@ -293,14 +293,16 @@ def paths_to_tensor(image_paths):
     
 def breed_identifier(img_path):
     prediction = Xception_predict_breed(img_path)
-    #pred=re.sub(r'\d+','',prediction)
-    #if dog_detector(img_path) == True:
-       #st.write('picture is a dog')
-    return st.write(f"This dog is a {prediction}\n")
-    
     if face_detector(img_path) == True:
         st.write('This is a human, "BACHARE" as we Moroccan say')
         return st.write(f"This person looks like a {prediction}\n")
+    #pred=re.sub(r'\d+','',prediction)
+    #if dog_detector(img_path) == True:
+       #st.write('picture is a dog')
+    else:
+    return st.write(f"This dog is a {prediction}\n")
+    
+    
         
     
     #else:
