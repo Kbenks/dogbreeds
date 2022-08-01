@@ -206,10 +206,9 @@ def save_uploaded_file(uploaded_file):
 
         return st.write("Saved image in false folder")    
 
-  #  except:
+    except:
 
-    #    return st.write("0") 
-
+        return st.write("0") 
 
 def load_image(image_file):
 	img = Image.open(image_file)
