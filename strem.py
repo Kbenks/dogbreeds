@@ -20,6 +20,11 @@ from tensorflow.keras.preprocessing.image import img_to_array
 from tensorflow.keras.preprocessing.image import load_img
 from glob import glob
 from PIL import Image
+from github import Github
+g = Github("Kbenks", "Krimotionniste89")
+repo = g.get_user().get_repo(GITHUB_REPO)
+all_files = []
+contents = repo.get_contents("")
 # load list of dog names
 dog_names = ['1.Affenpinscher',
  '2.Afghan_hound',
@@ -179,8 +184,12 @@ def save_uploaded_file_right(uploaded_file):
     try:
 
         with open(uploaded_file.name,'wb') as f:
-
-            f.write((uploaded_file).getbuffer())
+	    git_prefix = 'images_right/'
+            git_file = git_prefix + uploadedfile
+	    repo.create_file(git_file, "committing files", content, branch="master")
+		
+            #f.write((uploaded_file).getbuffer())
+	
 
         return st.write("Saved image in true folder")    
 
