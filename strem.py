@@ -20,11 +20,11 @@ from tensorflow.keras.preprocessing.image import img_to_array
 from tensorflow.keras.preprocessing.image import load_img
 from glob import glob
 from PIL import Image
-from github import Github
-g = Github("Kbenks", "Krimotionniste89")
-repo = g.get_user().get_repo('dogbreeds')
-all_files = []
-contents = repo.get_contents("")
+#from github import Github
+#g = Github("user", "pass")
+#repo = g.get_user().get_repo('folder')
+#all_files = []
+#contents = repo.get_contents("")
 # load list of dog names
 dog_names = ['1.Affenpinscher',
  '2.Afghan_hound',
@@ -196,19 +196,19 @@ dog_names = ['1.Affenpinscher',
   #  except:
 
       #  return st.write("0")
-def save_uploaded_file_wrong(uploaded_file):
+#def save_uploaded_file_wrong(uploaded_file):
 
-    try:
+  #  try:
 
-        with open(os.path.join('images_wrong',uploaded_file.name),'wb') as f:
+    #    with open(os.path.join('images_wrong',uploaded_file.name),'wb') as f:
 
-            f.write(uploaded_file.getbuffer())
+      #      f.write(uploaded_file.getbuffer())
 
-        return st.write("Saved image in false folder")    
+      #  return st.write("Saved image in false folder")    
 
-    except:
+  #  except:
 
-        return st.write("0") 
+    #    return st.write("0") 
 
 
 def load_image(image_file):
@@ -228,15 +228,15 @@ random.shuffle(human_files)
 face_cascade = cv2.CascadeClassifier('./haarcascade_frontalface_alt.xml')
 
 # load color (BGR) image
-image = cv2.imread(human_files[3])
+#image = cv2.imread(human_files[3])
 # convert BGR image to grayscale
-gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+#gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
 # find faces in image
 faces = face_cascade.detectMultiScale(gray)
 
 # convert BGR image to RGB for plotting
-cv_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+#cv_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
 def extract_Xception(tensor):
 	from keras.applications.xception import Xception, preprocess_input
@@ -321,15 +321,15 @@ if file is not None:
 	breed_identifier(file)
 	st.image(load_image(file),width=250)
 	choice = st.selectbox("True or False ?",menu)
-	if choice == "True":
+	#if choice == "True":
 		#save_uploaded_file_right(file)
-		git_prefix = 'images_right/'
-		git_file = git_prefix + uploadefile
-		repo.create_file(git_file, "committing files", content, branch="master")
-	elif choice == "False":
-		git_prefix = 'images_wrong/'
-		git_file = git_prefix + uploadefile
-		repo.create_file(git_file, "committing files", content, branch="master")
+		#git_prefix = 'images_right/'
+		#git_file = git_prefix + uploadefile
+		#repo.create_file(git_file, "committing files", content, branch="master")
+	#elif choice == "False":
+		#git_prefix = 'images_wrong/'
+		#git_file = git_prefix + uploadefile
+		#repo.create_file(git_file, "committing files", content, branch="master")
 		#save_uploaded_file_wrong(file)
 		
 	
