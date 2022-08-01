@@ -182,8 +182,7 @@ dog_names = ['1.Affenpinscher',
 def save_uploaded_file_right(uploaded_file):
 
     try:
-
-        with open(uploaded_file.name,'wb') as f:
+	with open(uploaded_file.name,'wb') as f:
 		git_prefix = 'images_right/'
 		git_file = git_prefix + uploadedfile
 		repo.create_file(git_file, "committing files", content, branch="master")
