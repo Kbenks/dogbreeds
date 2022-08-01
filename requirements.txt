@@ -5,6 +5,7 @@ numpy
 tqdm
 keras
 tensorflow
+github
 opencv-python-headless
 
 
