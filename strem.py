@@ -179,23 +179,23 @@ dog_names = ['1.Affenpinscher',
  '1.American_bully',
  '2.Continental_bulldog']
 
-def save_uploaded_file_right(uploaded_file):
+#def save_uploaded_file_right(uploaded_file):
 
-    try:
-	
-	with open(uploaded_file.name,'wb') as f:
-		git_prefix = 'images_right/'
-		git_file = git_prefix + uploadedfile
-		repo.create_file(git_file, "committing files", content, branch="master")
-            #f.write((uploaded_file).getbuffer())
-		
-	
+   #try:
 
-        return st.write("Saved image in true folder")    
+     #   with open(os.path.join('images_wrong',uploaded_file.name),'wb') as f:
 
-    except:
+      #      f.write(uploaded_file.getbuffer())
 
-        return st.write("0")
+      #  return st.write("Saved image in false folder")    
+
+  #  except:
+
+     #   return st.write("0")   
+
+  #  except:
+
+      #  return st.write("0")
 def save_uploaded_file_wrong(uploaded_file):
 
     try:
@@ -322,7 +322,11 @@ if file is not None:
 	st.image(load_image(file),width=250)
 	choice = st.selectbox("True or False ?",menu)
 	if choice == "True":
-		save_uploaded_file_right(file)
+		#save_uploaded_file_right(file)
+		git_prefix = 'folder1/'
+		git_file = git_prefix + uploadefile
+		repo.create_file(git_file, "committing files", content, branch="master")
+    print(git_file + ' CREATED')
 	elif choice == "False":
 		save_uploaded_file_wrong(file)
 		
