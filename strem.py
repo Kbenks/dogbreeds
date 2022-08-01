@@ -300,7 +300,7 @@ def breed_identifier(img_path):
     #if dog_detector(img_path) == True:
        #st.write('picture is a dog')
     else:
-    return st.write(f"This dog is a {prediction}\n")
+    	return st.write(f"This dog is a {prediction}\n")
     
     
         
