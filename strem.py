@@ -196,13 +196,13 @@ dog_names = ['1.Affenpinscher',
   #  except:
 
       #  return st.write("0")
-#def save_uploaded_file_wrong(uploaded_file):
+def save_uploaded_file(uploaded_file):
 
-  #  try:
+    try:
 
-    #    with open(os.path.join('images_wrong',uploaded_file.name),'wb') as f:
+        with open(os.path.join('images_wrong',uploaded_file.name),'wb') as f:
 
-      #      f.write(uploaded_file.getbuffer())
+            f.write(uploaded_file.getbuffer())
 
       #  return st.write("Saved image in false folder")    
 
@@ -293,7 +293,8 @@ def paths_to_tensor(image_paths):
     
 def breed_identifier(img_path):
     prediction = Xception_predict_breed(img_path)
-    if face_detector(img_path) == True:
+    save_uploaded_file(img_path)
+    if face_detector(os.path.join('images_wrong',img_path.name)) == True:
         st.write('This is a human, "BACHARE" as we Moroccan say')
         return st.write(f"This person looks like a {prediction}\n")
     #pred=re.sub(r'\d+','',prediction)
