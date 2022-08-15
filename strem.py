@@ -204,7 +204,7 @@ def save_uploaded_file(uploaded_file):
 
             f.write(uploaded_file.getbuffer())
 
-        return st.write("Saved image in false folder")    
+        return st.write("Image uploaded")    
 
     except:
 
