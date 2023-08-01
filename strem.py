@@ -6,7 +6,7 @@ from tensorflow.keras.applications.resnet50 import ResNet50
 Xception_model_aug = keras.models.load_model('./mod')
 #ResNet50_model=keras.models.load_model('./dogdetect')
 from sklearn.datasets import load_files       
-from keras.utils import np_utils
+#from keras.utils import np_utils
 import numpy as np
 from keras.layers import Conv2D, MaxPooling2D, GlobalAveragePooling2D
 from keras.layers import Dropout, Flatten, Dense
